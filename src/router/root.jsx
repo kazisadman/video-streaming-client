@@ -1,11 +1,10 @@
-import { Outlet } from "react-router-dom";
 import Navbar from "../components/ui/navbar";
 
 const Root = () => {
+  const pathName = location.pathname !== "/login";
   return (
     <div className="max-w-[1440px] mx-auto font-poppins">
-      <Navbar></Navbar>
-      <Outlet></Outlet>
+      {pathName && <Navbar></Navbar>}
     </div>
   );
 };
