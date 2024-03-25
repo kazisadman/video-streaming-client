@@ -3,6 +3,10 @@ import Root from "./root";
 import Home from "../pages/home";
 import Login from "../pages/login";
 import Register from "../pages/register";
+// import axios from "axios";
+
+// axios.defaults.baseURL = "http://localhost:8000/api/v1";
+// axios.defaults.withCredentials = true;
 
 export const router = createBrowserRouter([
   {
