@@ -33,7 +33,7 @@ const Register = () => {
             "Content-Type": "multipart/form-data",
           },
         })
-        .then((res) => console.log(res))
+        .then()
         .catch((err) => {
           if (err.response.status === 409) {
             setError("Username or email already exits");
@@ -107,6 +107,9 @@ const Register = () => {
                 />
               </div>
               <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Avatar</span>
+                </label>
                 <input
                   name="avatar"
                   type="file"

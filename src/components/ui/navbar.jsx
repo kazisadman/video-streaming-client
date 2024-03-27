@@ -1,6 +1,11 @@
-import {Sidebar,  toggleSidebar } from "./sidebar";
+import { useContext } from "react";
+import { Sidebar, toggleSidebar } from "./sidebar";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Navbar = () => {
+  const { data, error, loading } = useContext(AuthContext);
+  console.log(data, error, loading);
+
   const toggle = () => {
     const toggleBtn = document.getElementById("sidebar-btn");
 
