@@ -2,6 +2,9 @@ import { Link, Outlet } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import { MdSubscriptions } from "react-icons/md";
 import Loginbutton from "./loginbutton";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import Subscription from "../subscription";
 
 const toggleSidebar = () => {
   const checkbox = document.getElementById("my-drawer-2");
@@ -10,6 +13,8 @@ const toggleSidebar = () => {
   checkbox.checked = !checkbox.checked;
 };
 const Sidebar = () => {
+    const { data, loading } = useContext(AuthContext);
+
   return (
     <div>
       <div className="drawer lg:drawer-open">
@@ -37,7 +42,8 @@ const Sidebar = () => {
                 Subscription
               </Link>
             </li>
-            <Loginbutton></Loginbutton>
+            {!loading && !data && <Loginbutton></Loginbutton>}
+            <Subscription></Subscription>
           </ul>
         </div>
       </div>
