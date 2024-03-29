@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { Sidebar, toggleSidebar } from "./sidebar";
 import { AuthContext } from "../../context/AuthProvider";
 import Loader from "../loader";
+import instance from "../../utils/axiosConfig";
 
 const Navbar = () => {
-  const { data,error, loading } = useContext(AuthContext);
+  const { data, error, loading } = useContext(AuthContext);
+  console.log(error)
 
-  const { avatar, fullName } = data?.data || {};
+  const { avatar, fullName } = data || {};
 
   const toggle = () => {
     const toggleBtn = document.getElementById("sidebar-btn");
@@ -14,6 +16,13 @@ const Navbar = () => {
     toggleBtn.addEventListener("click", () => {
       toggleSidebar();
     });
+  };
+
+  const logOutUser = () => {
+    instance
+      .post("/users/logout")
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
   return (
     <div>
@@ -81,7 +90,7 @@ const Navbar = () => {
                 <a>Settings</a>
               </li>
               <li>
-                <a>Logout</a>
+                <a onClick={logOutUser}>Logout</a>
               </li>
             </ul>
           </div>

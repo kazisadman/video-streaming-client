@@ -1,5 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
 import { MdSubscriptions } from "react-icons/md";
 import Loginbutton from "./loginbutton";
 import { useContext } from "react";
@@ -40,6 +41,12 @@ const Sidebar = () => {
               <Link>
                 <MdSubscriptions className="text-2xl"></MdSubscriptions>
                 Subscription
+              </Link>
+            </li>
+            <li>
+              <Link>
+                <IoMdSettings className="text-2xl"></IoMdSettings>
+                Settings
               </Link>
             </li>
             {!loading && !data && <Loginbutton></Loginbutton>}
