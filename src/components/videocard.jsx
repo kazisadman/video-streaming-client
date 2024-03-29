@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Videocard = ({ videoData }) => {
   const { thumbnail, duration, title, views } = videoData;
@@ -26,7 +27,7 @@ const Videocard = ({ videoData }) => {
           </div>
           <div>
             <h2 className="font-semibold">{title}</h2>
-            <p className="text-sm">{userName}</p>
+            <Link to={`/${userName}`} className="text-sm">{userName}</Link>
             <p className="text-sm">{views} views</p>
           </div>
         </div>

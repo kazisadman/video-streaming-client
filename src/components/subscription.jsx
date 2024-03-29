@@ -2,13 +2,13 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 import useFetchData from "../hooks/useFetchData";
 import Loader from "./loader";
+import { Link } from "react-router-dom";
 
 const Subscription = () => {
   const { data: authData } = useContext(AuthContext);
   const fetcheData = useFetchData(`/subscribe/user/${authData._id}`);
   const { data, error, loading } = fetcheData;
   const channelInfo = data?.data || [];
-  console.log(error)
 
   return (
     <div>
@@ -24,7 +24,7 @@ const Subscription = () => {
                 <img src={channel.avatar} />
               </div>
             </div>
-            <h1>{channel.userName}</h1>
+            <Link to={`/${channel.userName}`}>{channel.userName}</Link>
           </div>
         ))
       )}
