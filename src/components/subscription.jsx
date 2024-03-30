@@ -24,7 +24,7 @@ const Subscription = () => {
                 <img src={channel.avatar} />
               </div>
             </div>
-            <Link to={`/${channel.userName}`}>{channel.userName}</Link>
+            <Link to={`/${channel.userName}`}>{channel.fullName}</Link>
           </div>
         ))
       )}

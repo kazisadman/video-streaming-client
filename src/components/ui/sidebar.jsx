@@ -6,6 +6,7 @@ import Loginbutton from "./loginbutton";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import Subscription from "../subscription";
+import Channelsidebar from "../channelsidebar";
 
 const toggleSidebar = () => {
   const checkbox = document.getElementById("my-drawer-2");
@@ -50,6 +51,7 @@ const Sidebar = () => {
               </Link>
             </li>
             {!loading && !data && <Loginbutton></Loginbutton>}
+            <Channelsidebar></Channelsidebar>
             <Subscription></Subscription>
           </ul>
         </div>

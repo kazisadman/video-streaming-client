@@ -5,10 +5,8 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import Channelpage from "../pages/channelpage";
 import Channelvideo from "../pages/channelvideo";
-// import axios from "axios";
-
-// axios.defaults.baseURL = "http://localhost:8000/api/v1";
-// axios.defaults.withCredentials = true;
+import Channeltweet from "../pages/channeltweet";
+import Channelsubscription from "../pages/channelsubscription";
 
 export const router = createBrowserRouter([
   {
@@ -20,15 +18,20 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path:'/:userName',
-        element:<Channelpage></Channelpage>,
-        children:[
+        path: "/:userName",
+        element: <Channelpage></Channelpage>,
+        children: [
           {
-            path:'video',
-            element:<Channelvideo></Channelvideo>
+            path: "video",
+            element: <Channelvideo></Channelvideo>,
+          },
+          { path: "tweet", element: <Channeltweet></Channeltweet> },
+          {
+            path:'subscription',
+            element:<Channelsubscription></Channelsubscription>
           }
-        ]
-      }
+        ],
+      },
     ],
   },
   {
