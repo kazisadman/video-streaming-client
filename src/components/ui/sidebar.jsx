@@ -18,7 +18,7 @@ const Sidebar = () => {
     const { data, loading } = useContext(AuthContext);
 
   return (
-    <div>
+    <div className="pt-16">
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content ">

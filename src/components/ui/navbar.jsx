@@ -5,10 +5,9 @@ import Loader from "../loader";
 import instance from "../../utils/axiosConfig";
 
 const Navbar = () => {
-  const { data, error, loading } = useContext(AuthContext);
-  console.log(error)
+  const { data, loading } = useContext(AuthContext);
 
-  const { avatar, fullName } = data || {};
+  const { avatar, fullName } = data?.data || {};
 
   const toggle = () => {
     const toggleBtn = document.getElementById("sidebar-btn");
@@ -29,7 +28,7 @@ const Navbar = () => {
       {loading ? (
         <Loader size={"lg"}></Loader>
       ) : (
-        <div className="navbar bg-base-100 justify-between">
+        <div className="navbar bg-base-100 justify-between fixed z-50">
           <div>
             <button
               id="sidebar-btn"

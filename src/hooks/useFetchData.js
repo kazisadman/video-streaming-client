@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import instance from "../utils/axiosConfig";
 
-const useFetchData = (url, initialData = []) => {
+const useFetchData = (url, params = {}, initialData = []) => {
   const [data, setData] = useState(initialData);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -9,7 +9,10 @@ const useFetchData = (url, initialData = []) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await instance.get(url);
+        const response = params
+          ? await instance.get(url, { params })
+          : await instance.get(url);
+
         setData(response.data);
       } catch (error) {
         setError(error);
@@ -18,7 +21,7 @@ const useFetchData = (url, initialData = []) => {
       }
     };
     fetchData();
-  }, [url]);
+  }, [url,params]);
 
   return { data, error, loading };
 };

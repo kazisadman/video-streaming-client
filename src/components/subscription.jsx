@@ -1,13 +1,26 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthProvider";
-import useFetchData from "../hooks/useFetchData";
 import Loader from "./loader";
 import { Link } from "react-router-dom";
+import instance from "../utils/axiosConfig";
 
 const Subscription = () => {
   const { data: authData } = useContext(AuthContext);
-  const fetcheData = useFetchData(`/subscribe/user/${authData._id}`);
-  const { data, error, loading } = fetcheData;
+  const [fetchData, setFetchData] = useState({});
+  const { data } = fetchData;
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (authData.data?._id) {
+      instance
+        .get(`/subscribe/user/${authData.data?._id}`)
+        .then((res) => {
+          setFetchData(res);
+          setLoading(false);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [authData]);
   const channelInfo = data?.data || [];
 
   return (
@@ -24,7 +37,7 @@ const Subscription = () => {
                 <img src={channel.avatar} />
               </div>
             </div>
-            <Link to={`/${channel.userName}`}>{channel.fullName}</Link>
+            <Link to={`/${channel.userName}/video`}>{channel.fullName}</Link>
           </div>
         ))
       )}

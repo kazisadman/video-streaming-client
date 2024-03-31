@@ -1,10 +1,32 @@
+import { useEffect, useState } from "react";
 import Loader from "../components/loader";
 import Videocard from "../components/videocard";
 import useFetchData from "../hooks/useFetchData";
+import { useParams } from "react-router-dom";
+import instance from "../utils/axiosConfig";
 
 const Channelvideo = () => {
-  const { data, loading } = useFetchData("/video/");
-  const videosInfo = data.data?.docs || [];
+  const { userName } = useParams();
+  const [loading, setLoading] = useState(true);
+  const [videosInfo, setVideosInfo] = useState([]);
+
+  const { data: userData } = useFetchData(`/users/channel/${userName}`);
+
+  useEffect(() => {
+    if (userData?.data?._id) {
+      instance
+        .get("/video/", {
+          params: {
+            userId: `${userData?.data?._id}`,
+          },
+        })
+        .then((res) => {
+          setVideosInfo(res.data.data?.docs);
+          setLoading(false);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [userData]);
 
   return (
     <div className="py-5">
@@ -18,7 +40,7 @@ const Channelvideo = () => {
         </div>
       )}
     </div>
-  );
+  )
 };
 
 export default Channelvideo;

@@ -43,7 +43,7 @@ const Channelpage = () => {
             <span>-</span>
             <p>{subscriberCount} subscribers</p>
           </div>
-          {authData.userName !== userName && (
+          {authData?.userName !== userName && (
             <Subscribebutton isSubscribed={isSubscribed}></Subscribebutton>
           )}
         </div>

@@ -1,8 +1,12 @@
-import { FaVideo } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 import { GrChannel } from "react-icons/gr";
 import { MdHistory } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
 const Channelsidebar = () => {
+    const {data} = useContext(AuthContext)
+
   return (
     <div>
       <div className="divider divider-neutral"></div>
@@ -10,7 +14,7 @@ const Channelsidebar = () => {
       <ul className="menu p-4 w-full min-h-full bg-white  text-base-content">
         {/* Sidebar content here */}
         <li>
-          <Link>
+          <Link to={`/${data?.data?.userName}/video`}>
             <GrChannel className="text-2xl"></GrChannel>Your channel
           </Link>
         </li>
@@ -20,8 +24,8 @@ const Channelsidebar = () => {
           </Link>
         </li>
         <li>
-          <Link>
-            <FaVideo className="text-2xl"></FaVideo>Your videos
+          <Link to={`/${data?.data?.userName}/tweet`}>
+            <FaTwitter className="text-2xl"></FaTwitter>Your twittes
           </Link>
         </li>
       </ul>
