@@ -11,6 +11,7 @@ const Channelpage = () => {
 
   const { data } = useFetchData(`/users/channel/${userName}`);
 
+
   const {
     avatar,
     fullName,

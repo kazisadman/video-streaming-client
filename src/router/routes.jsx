@@ -7,6 +7,7 @@ import Channelpage from "../pages/channelpage";
 import Channelvideo from "../pages/channelvideo";
 import Channeltweet from "../pages/channeltweet";
 import Channelsubscription from "../pages/channelsubscription";
+import Upload from "../pages/upload";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
           }
         ],
       },
+      {
+        path:'/:userName/upload',
+        element:<Upload></Upload>
+      }
     ],
   },
   {

@@ -1,11 +1,12 @@
 import { FaTwitter } from "react-icons/fa";
 import { GrChannel } from "react-icons/gr";
 import { MdHistory } from "react-icons/md";
+import { RiVideoUploadFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
 const Channelsidebar = () => {
-    const {data} = useContext(AuthContext)
+  const { data } = useContext(AuthContext);
 
   return (
     <div>
@@ -26,6 +27,11 @@ const Channelsidebar = () => {
         <li>
           <Link to={`/${data?.data?.userName}/tweet`}>
             <FaTwitter className="text-2xl"></FaTwitter>Your twittes
+          </Link>
+        </li>
+        <li>
+          <Link to={`/${data?.data?.userName}/upload`}>
+            <RiVideoUploadFill className="text-2xl"></RiVideoUploadFill>Upload
           </Link>
         </li>
       </ul>
