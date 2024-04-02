@@ -25,8 +25,8 @@ const Channelsidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to={`/${data?.data?.userName}/tweet`}>
-            <FaTwitter className="text-2xl"></FaTwitter>Your twittes
+          <Link to={`/${data?.data?.userName}/post`}>
+            <FaTwitter className="text-2xl"></FaTwitter>Tweet
           </Link>
         </li>
         <li>

@@ -32,17 +32,22 @@ const Channeltweet = () => {
       {loading ? (
         <Loader></Loader>
       ) : (
-        <div className="border-2 p-2 rounded-lg border-gray-500 mb-3">
+        <div>
           {tweets.map((data) => (
-            <div className="flex items-start gap-5" key={data._id}>
-              <div className="avatar">
-                <div className="w-12 rounded-full">
-                  <img src={avatar} />
+            <div
+              key={data._id}
+              className="border-2 p-2 rounded-lg border-gray-500 mb-3"
+            >
+              <div className="flex items-start gap-5">
+                <div className="avatar">
+                  <div className="w-12 rounded-full">
+                    <img src={avatar} />
+                  </div>
                 </div>
-              </div>
-              <div>
-                <p className="text-sm">{userName}</p>
-                <p className="text-xl">{data.content}</p>
+                <div>
+                  <p className="text-sm">{userName}</p>
+                  <p className="text-xl">{data.content}</p>
+                </div>
               </div>
             </div>
           ))}

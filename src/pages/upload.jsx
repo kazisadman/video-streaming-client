@@ -1,19 +1,38 @@
+import instance from "../utils/axiosConfig";
+
 const Upload = () => {
-    const uploadVideo = (e) =>{
-        e.preventDefault()
-        const form = e.target
+  const uploadVideo = (e) => {
+    e.preventDefault();
+    const form = e.target;
 
-        const title = form.title.value
-        const description = form.description.value
-        const video = form.video.files[0]
-        const thumbnail = form.thumbnail.files[0]
+    const title = form.title.value;
+    const description = form.description.value;
+    const video = form.video.files[0];
+    const thumbnail = form.thumbnail.files[0];
 
-        const data = {
-            title,description,video,thumbnail
-        }
+    const data = {
+      title,
+      description,
+      video,
+      thumbnail,
+    };
 
-        console.log(data)
-    }
+    instance
+      .post("/video/", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then(() => {
+        const successToast = document.getElementById("success-toast");
+        successToast.classList.remove("hidden");
+
+        setTimeout(() => {
+          successToast.classList.add("hidden");
+        }, 3000);
+      })
+      .catch((err) => console.error(err));
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -70,6 +89,11 @@ const Upload = () => {
               <button className="btn btn-primary">Upload</button>
             </div>
           </form>
+        </div>
+      </div>
+      <div id="success-toast" className="toast hidden">
+        <div className="alert alert-success">
+          <span>Video uploaded successfully</span>
         </div>
       </div>
     </div>

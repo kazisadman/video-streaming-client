@@ -8,6 +8,8 @@ import Channelvideo from "../pages/channelvideo";
 import Channeltweet from "../pages/channeltweet";
 import Channelsubscription from "../pages/channelsubscription";
 import Upload from "../pages/upload";
+import Tweet from "../pages/tweet";
+import Videoplayer from "../pages/videoplayer";
 
 export const router = createBrowserRouter([
   {
@@ -28,15 +30,23 @@ export const router = createBrowserRouter([
           },
           { path: "tweet", element: <Channeltweet></Channeltweet> },
           {
-            path:'subscription',
-            element:<Channelsubscription></Channelsubscription>
-          }
+            path: "subscription",
+            element: <Channelsubscription></Channelsubscription>,
+          },
         ],
       },
       {
-        path:'/:userName/upload',
-        element:<Upload></Upload>
-      }
+        path: "/:userName/upload",
+        element: <Upload></Upload>,
+      },
+      {
+        path: "/:userName/post",
+        element: <Tweet></Tweet>,
+      },
+      {
+        path: "/play/:videoId",
+        element: <Videoplayer></Videoplayer>,
+      },
     ],
   },
   {
