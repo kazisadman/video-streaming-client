@@ -10,6 +10,7 @@ import Channelsubscription from "../pages/channelsubscription";
 import Upload from "../pages/upload";
 import Tweet from "../pages/tweet";
 import Videoplayer from "../pages/videoplayer";
+import Watchhistory from "../pages/watchhistory";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
         path: "/play/:videoId",
         element: <Videoplayer></Videoplayer>,
       },
+      {
+        path:"/:userName/watch-history",
+        element:<Watchhistory></Watchhistory>
+      }
     ],
   },
   {

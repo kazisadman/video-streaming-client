@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthProvider";
 import Loader from "./loader";
 import { Link } from "react-router-dom";
 import instance from "../utils/axiosConfig";
+import Avatar from "./ui/avatar";
 
 const Subscription = () => {
   const { data: authData } = useContext(AuthContext);
@@ -32,11 +33,7 @@ const Subscription = () => {
       ) : (
         channelInfo.map((channel) => (
           <div className="flex items-center gap-3 my-3" key={channel._id}>
-            <div className="avatar">
-              <div className="w-12 rounded-full">
-                <img src={channel.avatar} />
-              </div>
-            </div>
+            <Avatar size={'12'} url={channel.avatar}></Avatar>
             <Link to={`/${channel.userName}/video`}>{channel.fullName}</Link>
           </div>
         ))

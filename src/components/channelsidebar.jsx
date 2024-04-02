@@ -20,7 +20,7 @@ const Channelsidebar = () => {
           </Link>
         </li>
         <li>
-          <Link>
+          <Link to={`/${data?.data?.userName}/watch-history`}>
             <MdHistory className="text-2xl"></MdHistory>Watch history
           </Link>
         </li>
