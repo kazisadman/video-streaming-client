@@ -3,11 +3,12 @@ import { Sidebar, toggleSidebar } from "./sidebar";
 import { AuthContext } from "../../context/AuthProvider";
 import Loader from "../loader";
 import instance from "../../utils/axiosConfig";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { data, loading } = useContext(AuthContext);
 
-  const { avatar, fullName } = data?.data || {};
+  const { avatar, fullName,userName } = data?.data || {};
 
   const toggle = () => {
     const toggleBtn = document.getElementById("sidebar-btn");
@@ -80,9 +81,9 @@ const Navbar = () => {
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
-                </a>
+                <Link to={`/${userName}/profile`} className="justify-between">
+                  Update Account
+                </Link>
               </li>
               <li>
                 <a onClick={logOutUser}>Logout</a>

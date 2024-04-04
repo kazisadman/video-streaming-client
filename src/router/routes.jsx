@@ -11,6 +11,7 @@ import Upload from "../pages/upload";
 import Tweet from "../pages/tweet";
 import Videoplayer from "../pages/videoplayer";
 import Watchhistory from "../pages/watchhistory";
+import Profile from "../pages/profile";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path:"/:userName/watch-history",
         element:<Watchhistory></Watchhistory>
+      },
+      {
+        path:"/:userName/profile",
+        element:<Profile></Profile>
       }
     ],
   },

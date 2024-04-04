@@ -2,6 +2,7 @@ import { FaTwitter } from "react-icons/fa";
 import { GrChannel } from "react-icons/gr";
 import { MdHistory } from "react-icons/md";
 import { RiVideoUploadFill } from "react-icons/ri";
+import { MdOutlineVideoSettings } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProvider";
@@ -32,6 +33,12 @@ const Channelsidebar = () => {
         <li>
           <Link to={`/${data?.data?.userName}/upload`}>
             <RiVideoUploadFill className="text-2xl"></RiVideoUploadFill>Upload
+          </Link>
+        </li>
+        <li>
+          <Link to={`/${data?.data?.userName}/upload`}>
+            <MdOutlineVideoSettings className="text-2xl"></MdOutlineVideoSettings>
+            Video Settings
           </Link>
         </li>
       </ul>
