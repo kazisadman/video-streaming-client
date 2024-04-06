@@ -36,7 +36,7 @@ const Channelsidebar = () => {
           </Link>
         </li>
         <li>
-          <Link to={`/${data?.data?.userName}/upload`}>
+          <Link to={`/${data?.data?.userName}/video-settings`}>
             <MdOutlineVideoSettings className="text-2xl"></MdOutlineVideoSettings>
             Video Settings
           </Link>

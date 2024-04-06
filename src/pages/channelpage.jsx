@@ -16,7 +16,6 @@ const Channelpage = () => {
     avatar,
     fullName,
     coverImage,
-    channelSubscribedCount,
     subscriberCount,
     isSubscribed,
   } = data?.data || {};
@@ -44,7 +43,7 @@ const Channelpage = () => {
             <span>-</span>
             <p>{subscriberCount} subscribers</p>
           </div>
-          {authData?.userName !== userName && (
+          {authData.data?.userName !== userName && (
             <Subscribebutton isSubscribed={isSubscribed}></Subscribebutton>
           )}
         </div>

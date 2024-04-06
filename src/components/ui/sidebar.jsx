@@ -17,10 +17,10 @@ const Sidebar = () => {
     const { data, loading } = useContext(AuthContext);
 
   return (
-    <div className="pt-16">
+    <div className="lg:pt-16">
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content ">
+        <div className="drawer-content px-1 lg:px-0">
           {/* Page content here */}
           <Outlet></Outlet>
         </div>

@@ -29,7 +29,7 @@ const Navbar = () => {
       {loading ? (
         <Loader size={"lg"}></Loader>
       ) : (
-        <div className="navbar bg-base-100 justify-between fixed z-50">
+        <div className="navbar bg-base-100 justify-between lg:fixed z-50">
           <div>
             <button
               id="sidebar-btn"

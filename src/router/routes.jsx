@@ -12,6 +12,7 @@ import Tweet from "../pages/tweet";
 import Videoplayer from "../pages/videoplayer";
 import Watchhistory from "../pages/watchhistory";
 import Profile from "../pages/profile";
+import Videosettings from "../pages/videosettings";
 
 export const router = createBrowserRouter([
   {
@@ -50,13 +51,17 @@ export const router = createBrowserRouter([
         element: <Videoplayer></Videoplayer>,
       },
       {
-        path:"/:userName/watch-history",
-        element:<Watchhistory></Watchhistory>
+        path: "/:userName/watch-history",
+        element: <Watchhistory></Watchhistory>,
       },
       {
-        path:"/:userName/profile",
-        element:<Profile></Profile>
-      }
+        path: "/:userName/profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "/:userName/video-settings",
+        element: <Videosettings></Videosettings>,
+      },
     ],
   },
   {

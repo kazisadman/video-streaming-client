@@ -5,6 +5,7 @@ const Videocard = ({ videoData }) => {
   const { thumbnail, duration, title, views,_id } = videoData;
   const { avatar, userName } = videoData.ownerdetails;
 
+
   const minutes = Math.floor(duration / 60);
   const second = Math.round(duration % 60);
 
