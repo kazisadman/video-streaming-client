@@ -37,12 +37,12 @@ const Sidebar = () => {
                 <FaHome className="text-2xl"></FaHome>Home
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link>
                 <MdSubscriptions className="text-2xl"></MdSubscriptions>
                 Subscription
               </Link>
-            </li>
+            </li> */}
             {!loading && !data && <Loginbutton></Loginbutton>}
             <Channelsidebar></Channelsidebar>
             <Subscription></Subscription>

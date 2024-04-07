@@ -13,6 +13,7 @@ import Videoplayer from "../pages/videoplayer";
 import Watchhistory from "../pages/watchhistory";
 import Profile from "../pages/profile";
 import Videosettings from "../pages/videosettings";
+import Searchpage from "../pages/searchpage";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
       {
         path: "/:userName/video-settings",
         element: <Videosettings></Videosettings>,
+      },
+      {
+        path: "/search/video/:querytext",
+        element: <Searchpage></Searchpage>,
       },
     ],
   },

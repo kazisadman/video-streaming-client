@@ -13,7 +13,7 @@ const Videocard = ({ videoData }) => {
   const formatedSecond = second.toString().padStart(2, "0");
   return (
     <div>
-      <Link to={`/play/${_id}`} className="card card-compact bg-base-100 ">
+      <Link to={`/play/${_id}`} >
         <figure className="relative">
           <img src={thumbnail} alt="thumbnail" className="h-40 w-full" />
           <div className="badge badge-neutral absolute bottom-1 right-1">{`${formatedMinutes}:${formatedSecond}`}</div>

@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
     data,error,loading
   }
 
+
   // useEffect(() => {
   //   const fetchData = async () => {
   //     if (typeof data === "object" && !loading) {

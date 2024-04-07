@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import { Sidebar, toggleSidebar } from "./sidebar";
 import { AuthContext } from "../../context/AuthProvider";
+import { CiSearch } from "react-icons/ci";
 import Loader from "../loader";
 import instance from "../../utils/axiosConfig";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { data, loading } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const { avatar, fullName,userName } = data?.data || {};
+  const { avatar, fullName, userName } = data?.data || {};
 
   const toggle = () => {
     const toggleBtn = document.getElementById("sidebar-btn");
@@ -23,6 +25,14 @@ const Navbar = () => {
       .post("/users/logout")
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+  };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+
+    const query = e.target.search.value;
+    console.log(query)
+    navigate(`/search/video/${query}`);
   };
   return (
     <div>
@@ -51,16 +61,20 @@ const Navbar = () => {
               </svg>
             </button>
             <div>
-              <a className="btn btn-ghost text-xl">daisyUI</a>
+              <a className="btn btn-ghost text-xl">streamU</a>
             </div>
           </div>
-          <div>
+          <form onSubmit={handleSearch}>
             <input
               type="text"
+              name="search"
               placeholder="Search"
               className="input input-bordered w-24 md:w-auto"
             />
-          </div>
+            <button>
+              <CiSearch className="text-3xl ml-2"></CiSearch>
+            </button>
+          </form>
           <div className="dropdown dropdown-end">
             <div className="flex items-center gap-2 ">
               <div>
