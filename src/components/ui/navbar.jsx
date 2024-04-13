@@ -23,7 +23,9 @@ const Navbar = () => {
   const logOutUser = () => {
     instance
       .post("/users/logout")
-      .then((res) => console.log(res))
+      .then(() => {
+        navigate("/login");
+      })
       .catch((err) => console.log(err));
   };
 
@@ -31,7 +33,7 @@ const Navbar = () => {
     e.preventDefault();
 
     const query = e.target.search.value;
-    console.log(query)
+    console.log(query);
     navigate(`/search/video/${query}`);
   };
   return (
@@ -75,35 +77,43 @@ const Navbar = () => {
               <CiSearch className="text-3xl ml-2"></CiSearch>
             </button>
           </form>
-          <div className="dropdown dropdown-end">
-            <div className="flex items-center gap-2 ">
-              <div>
-                <h1>{fullName}</h1>
-              </div>
-              <div
-                tabIndex={0}
-                role="button"
-                className="btn btn-ghost btn-circle avatar"
-              >
-                <div className="w-10 rounded-full">
-                  <img alt="Tailwind CSS Navbar component" src={avatar} />
-                </div>
+          {!loading && data.length === 0 ? (
+            <div className="avatar">
+              <div className="w-10 rounded-full">
+                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
               </div>
             </div>
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link to={`/${userName}/profile`} className="justify-between">
-                  Update Account
-                </Link>
-              </li>
-              <li>
-                <a onClick={logOutUser}>Logout</a>
-              </li>
-            </ul>
-          </div>
+          ) : (
+            <div className="dropdown dropdown-end">
+              <div className="flex items-center gap-2 ">
+                <div className="hidden md:block">
+                  <h1>{fullName}</h1>
+                </div>
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img alt="Tailwind CSS Navbar component" src={avatar} />
+                  </div>
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <Link to={`/${userName}/profile`} className="justify-between">
+                    Update Account
+                  </Link>
+                </li>
+                <li>
+                  <a onClick={logOutUser}>Logout</a>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       )}
       <Sidebar></Sidebar>

@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-import { MdSubscriptions } from "react-icons/md";
+// import { MdSubscriptions } from "react-icons/md";
 import Loginbutton from "./loginbutton";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
@@ -43,9 +43,14 @@ const Sidebar = () => {
                 Subscription
               </Link>
             </li> */}
-            {!loading && !data && <Loginbutton></Loginbutton>}
-            <Channelsidebar></Channelsidebar>
-            <Subscription></Subscription>
+            {!loading && data.length === 0 ? (
+              <Loginbutton></Loginbutton>
+            ) : (
+              <>
+                <Channelsidebar></Channelsidebar>
+                <Subscription></Subscription>
+              </>
+            )}
           </ul>
         </div>
       </div>

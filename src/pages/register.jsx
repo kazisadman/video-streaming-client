@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import registerImage from "../assets/undraw_tweetstorm_re_n0rs.svg";
 import instance from "../utils/axiosConfig";
 import { useState } from "react";
 
 const Register = () => {
   const [error, setError] = useState("");
+  const navigate = useNavigate()
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -33,7 +34,9 @@ const Register = () => {
             "Content-Type": "multipart/form-data",
           },
         })
-        .then()
+        .then(()=>{
+          navigate('/')
+        })
         .catch((err) => {
           if (err.response.status === 409) {
             setError("Username or email already exits");

@@ -36,7 +36,7 @@ const Upload = () => {
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
-        <div className="card shrink-0 w-full max-w-3xl shadow-2xl bg-base-100">
+        <div className="card shrink-0 w-full max-w-xl lg:max-w-3xl  shadow-2xl bg-base-100">
           <form className="card-body" onSubmit={uploadVideo}>
             <div className="form-control">
               <label className="label">

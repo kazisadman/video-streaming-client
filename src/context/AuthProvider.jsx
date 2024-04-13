@@ -11,7 +11,6 @@ const AuthProvider = ({ children }) => {
   //   error: null,
   //   loading: true,
   // });
-
   const { data, error, loading } = useFetchData("/users/user-data");
 
   const userInfo ={

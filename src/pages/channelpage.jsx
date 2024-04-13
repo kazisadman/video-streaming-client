@@ -37,7 +37,7 @@ const Channelpage = () => {
           </div>
         </div>
         <div>
-          <h1 className="text-5xl">{fullName}</h1>
+          <h1 className="text-2xl md:text-5xl">{fullName}</h1>
           <div className="flex items-center gap-1">
             <h2>@{userName}</h2>
             <span>-</span>
@@ -56,9 +56,9 @@ const Channelpage = () => {
           <li>
             <Link to={"tweet"}>Tweet</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to={"subscription"}>Subscription</Link>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div>

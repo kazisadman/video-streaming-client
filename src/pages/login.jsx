@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import loginImage from "../assets/undraw_online_media_re_r9qv.svg";
 import { useState } from "react";
 import instance from "../utils/axiosConfig";
 
 const Login = () => {
   const [error, setError] = useState("");
+  const navigate = useNavigate()
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -29,7 +30,6 @@ const Login = () => {
       password,
     };
 
-    console.log(data);
 
     if (password.length < 6) {
       setError("Password should be ateast 6 characters");
@@ -40,7 +40,9 @@ const Login = () => {
             withCredentials: true,
           },
         })
-        .then()
+        .then(()=>{
+          navigate('/')
+        })
         .catch((err) => {
           // if (err.response.status === 404) {
           //   setError("User not found");

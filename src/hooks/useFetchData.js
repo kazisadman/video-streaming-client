@@ -11,9 +11,11 @@ const useFetchData = (url, initialData = []) => {
       .get(url)
       .then((res) => {
         setData(res.data);
-        setLoading(false);
       })
-      .catch((err) => setError(err));
+      .catch((err) => setError(err))
+      .finally(() => {
+        setLoading(false);
+      });
   }, [url]);
 
   return { data, error, loading };
