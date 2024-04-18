@@ -3,6 +3,7 @@
 
 streamU is a web application that allows users to create channels, share videos, and engage with other users through tweets. Similar to YouTube, users can discover and watch a wide range of videos, create their own channels to showcase their content, and interact with the community through tweets.
 
+Live link - https://streamu-f3c2f.web.app/
 
 ## Features
 
